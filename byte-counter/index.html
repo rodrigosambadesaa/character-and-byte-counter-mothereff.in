@@ -1,15 +1,75 @@
 <!DOCTYPE html>
-<html lang=en>
-<meta charset=utf-8>
-<title>UTF-8 string length & byte counter</title>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=stylesheet href=eff.css>
-<meta name=description content="An on-the-fly UTF-8 byte counter.">
-<h1>UTF-8 string length & byte counter</h1>
-<noscript><strong>To use this tool, please <a href=http://enable-javascript.com/>enable JavaScript</a> and reload the page.</strong></noscript>
-<p><textarea autofocus>i ♥ u</textarea>
-<p>That’s <strong id=characters>5 characters</strong>, totaling <strong id=bytes>7 bytes</strong>. <a href=#%E2%82%AC id=permalink>#</a>
-<p>Pro tip: add <code>https://mothereff.in/byte-counter#<var>%s</var></code> to the custom search engines / location bar shortcuts in your browser of choice. Whenever I want to check string length / byte count, I just enter <code>len <var>some string</var></code> in my address bar.
-<p id=footer>Made by <a href=https://mathiasbynens.be/>@mathias</a> — <a href=https://mths.be/utf8js>powered by utf8.js</a> — <a href=https://github.com/mathiasbynens/mothereff.in>fork this on GitHub!</a></p>
-<script src=vendor/utf8.js></script>
-<script src=eff.js></script>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UTF-8 string length & byte counter</title>
+	<meta name="description" content="Count Unicode characters and UTF-8 bytes instantly as you type.">
+	<link rel="stylesheet" href="eff.css">
+</head>
+<body>
+	<main class="app-shell">
+		<header class="hero">
+			<p class="eyebrow">Text utility</p>
+			<h1>UTF-8 character & byte counter</h1>
+			<p class="intro">Paste or type any text to see its Unicode character count and UTF-8 byte size instantly.</p>
+		</header>
+
+		<noscript>
+			<div class="notice">
+				<strong>JavaScript is required.</strong>
+				Please enable JavaScript and reload the page to use the live counter.
+			</div>
+		</noscript>
+
+		<section class="counter-card" aria-labelledby="input-label">
+			<div class="section-heading">
+				<div>
+					<p class="section-kicker">Input</p>
+					<h2 id="input-label">Your text</h2>
+				</div>
+				<span class="live-badge">Live</span>
+			</div>
+
+			<textarea aria-labelledby="input-label" autofocus spellcheck="false" placeholder="Type or paste text here…">i ♥ u</textarea>
+
+			<div class="stats" aria-live="polite" aria-atomic="true">
+				<div class="stat">
+					<span class="stat-label">Characters</span>
+					<strong id="characters">5 characters</strong>
+				</div>
+				<div class="stat">
+					<span class="stat-label">UTF-8 size</span>
+					<strong id="bytes">7 bytes</strong>
+				</div>
+			</div>
+
+			<div class="permalink-row">
+				<span>Share this exact text</span>
+				<a href="#%E2%82%AC" id="permalink" aria-label="Permalink to the current text">Copyable permalink #</a>
+			</div>
+		</section>
+
+		<section class="tip-card">
+			<div class="tip-icon" aria-hidden="true">⌘</div>
+			<div>
+				<h2>Power-user tip</h2>
+				<p>Add <code>https://mothereff.in/byte-counter#<var>%s</var></code> as a custom search engine or browser shortcut. You can then jump straight to a count from the address bar.</p>
+			</div>
+		</section>
+
+		<footer>
+			<p>
+				Originally made by <a href="https://mathiasbynens.be/">@mathias</a>
+				<span aria-hidden="true">·</span>
+				<a href="https://mths.be/utf8js">powered by utf8.js</a>
+				<span aria-hidden="true">·</span>
+				<a href="https://github.com/rodrigosambadesaa/character-and-byte-counter-mothereff.in">view this fork on GitHub</a>
+			</p>
+		</footer>
+	</main>
+
+	<script src="vendor/utf8.js"></script>
+	<script src="eff.js"></script>
+</body>
+</html>
